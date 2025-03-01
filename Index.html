@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriTrack - Personalized Nutrition and Wellness Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>NutriTrack</h1>
+      <nav>
+        <ul>
+          <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#tracker">Tracker</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#login" id="loginLink">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login/Signup Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login / Signup</h2>
+      <form id="authForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit" id="loginButton">Login</button>
+        <button type="submit" id="signupButton">Signup</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2>Your Personalized Nutrition and Wellness Tracker</h2>
+        <p>Powered by AI to help you achieve your health goals.</p>
+        <a href="#nutrition" class="cta-button">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Nutrition Plans -->
+    <section id="nutrition" class="section">
+      <div class="container">
+        <h2>Personalized Nutrition Plans</h2>
+        <form id="nutritionForm">
+          <div class="input-group">
+            <label for="diet"><i class="fas fa-utensils"></i> Dietary Preference:</label>
+            <select id="diet" required>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="omnivore">Omnivore</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="allergies"><i class="fas fa-allergies"></i> Allergies:</label>
+            <input type="text" id="allergies" placeholder="e.g., nuts, dairy">
+          </div>
+          <div class="input-group">
+            <label for="goals"><i class="fas fa-bullseye"></i> Health Goals:</label>
+            <select id="goals" required>
+              <option value="weight_loss">Weight Loss</option>
+              <option value="muscle_gain">Muscle Gain</option>
+              <option value="general_health">General Health</option>
+            </select>
+          </div>
+          <button type="submit">Generate Nutrition Plan</button>
+        </form>
+        <div id="nutritionResult">
+          <h3>Your Personalized Nutrition Plan</h3>
+          <p id="mealPlan"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wellness Tracker -->
+    <section id="tracker" class="section">
+      <div class="container">
+        <h2>Wellness Tracker</h2>
+        <div class="tracker-container">
+          <div class="tracker-card">
+            <h3><i class="fas fa-running"></i> Physical Activity</h3>
+            <input type="number" id="activity" placeholder="Minutes of activity">
+          </div>
+          <div class="tracker-card">
+            <h3><i class="fas fa-bed"></i> Sleep</h3>
+            <input type="number" id="sleep" placeholder="Hours of sleep">
+          </div>
+          <div class="tracker-card">
+            <h3><i class="fas fa-brain"></i> Stress Level</h3>
+            <select id="stress">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button id="logData">Log Data</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Insights -->
+    <section id="insights" class="section">
+      <div class="container">
+        <h2>Health Insights</h2>
+        <div class="insights-container">
+          <div class="insights-card">
+            <h3><i class="fas fa-carrot"></i> Nutrition</h3>
+            <p id="nutritionInsight"></p>
+          </div>
+          <div class="insights-card">
+            <h3><i class="fas fa-heartbeat"></i> Activity</h3>
+            <p id="activityInsight"></p>
+          </div>
+          <div class="insights-card">
+            <h3><i class="fas fa-moon"></i> Sleep</h3>
+            <p id="sleepInsight"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community -->
+    <section id="community" class="section">
+      <div class="container">
+        <h2>Community</h2>
+        <p>Connect with nutritionists, fitness coaches, and peers to stay motivated!</p>
+        <button id="joinCommunity">Join the Community</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 NutriTrack. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Firebase and Chart.js -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
